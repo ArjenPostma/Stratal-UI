@@ -1,0 +1,67 @@
+{
+    "name": "stratal-ui",
+    "version": "0.0.1",
+    "description": "A clean and simple Vue 3 component library.",
+    "type": "module",
+    "license": "MIT",
+    "engines": {
+        "node": ">=18"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ArjenPostma/Stratal-UI.git"
+    },
+    "author": "Arjen Postma",
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": "./dist/index.js",
+        "./package.json": "./package.json"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "clean": "rm -rf dist",
+        "build": "npm run clean && tsdown",
+        "dev": "tsdown --watch",
+        "playground": "vite",
+        "test:watch": "vitest",
+        "test": "vitest run",
+        "typecheck": "vue-tsc --noEmit",
+        "release": "npm run everything && npm run build && bumpp && npm publish",
+        "prepublishOnly": "npm run build",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+        "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+        "everything": "npm run format && npm run typecheck && npm run lint:fix && npm run test",
+        "check-deps": "npm outdated && npm audit"
+    },
+    "peerDependencies": {
+        "vue": "^3.0.0"
+    },
+    "devDependencies": {
+        "@types/node": "^24.5.2",
+        "@typescript-eslint/eslint-plugin": "^8.44.1",
+        "@typescript-eslint/parser": "^8.44.1",
+        "@vitejs/plugin-vue": "^6.0.1",
+        "@vue/test-utils": "^2.4.6",
+        "bumpp": "^10.1.0",
+        "eslint": "^9.36.0",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-prettier": "^5.5.4",
+        "happy-dom": "^18.0.1",
+        "prettier": "^3.6.2",
+        "tsdown": "^0.15.5",
+        "typescript": "^5.8.3",
+        "vite": "^6.0.0",
+        "vitest": "^3.1.3",
+        "vue": "^3.5.13",
+        "vue-tsc": "^3.0.3"
+    }
+}
