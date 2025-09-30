@@ -37,13 +37,14 @@
         "prepublishOnly": "npm run build",
         "format": "prettier --write .",
         "format:check": "prettier --check .",
-        "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
-        "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+        "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.vue --fix",
+        "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.vue --fix",
         "everything": "npm run format && npm run typecheck && npm run lint:fix && npm run test",
         "check-deps": "npm outdated && npm audit"
     },
     "peerDependencies": {
-        "vue": "^3.0.0"
+        "vue": "^3.0.0",
+        "modern-normalize": "^3.0.1"
     },
     "devDependencies": {
         "@types/node": "^24.5.2",
@@ -62,6 +63,10 @@
         "vite": "^6.0.0",
         "vitest": "^3.1.3",
         "vue": "^3.5.13",
-        "vue-tsc": "^3.0.3"
+        "vue-eslint-parser": "^10.2.0",
+        "vue-tsc": "^3.0.3",
+        "@vue/eslint-config-typescript": "^14.6.0",
+        "eslint-plugin-vue": "^10.5.0",
+        "@vue/eslint-config-prettier": "^10.2.0"
     }
 }

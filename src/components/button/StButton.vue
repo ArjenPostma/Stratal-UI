@@ -57,578 +57,224 @@ defineProps({
 <style>
 .st-button {
     display: inline-flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-
     border: 0;
+    border-radius: 4px;
+    gap: var(--button-gap, 8px);
+    padding: var(--button-padding, 4px 12px);
+    font: var(--button-font, var(--font-sm));
+    letter-spacing: var(--button-letter-spacing, var(--font-sm-letter-spacing));
+    transition:
+        background-color 0.2s,
+        opacity 0.2s;
 
-    &:hover {
+    &:not(:disabled) {
         cursor: pointer;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
     }
 }
 
 .st-button--2xs {
-    padding: 2px 8px;
-    gap: 4px;
-    border-radius: 4px;
-    font: var(--font-xs);
-    letter-spacing: var(--font-xs-letter-spacing);
+    --button-padding: 4px 8px;
+    --button-gap: 4px;
+    --button-font: var(--font-xs);
+    --button-letter-spacing: var(--font-xs-letter-spacing);
 }
 
 .st-button--xs {
-    padding: 2px 10px;
-    gap: 4px;
-    border-radius: 4px;
-    font: var(--font-xs);
-    letter-spacing: var(--font-xs-letter-spacing);
+    --button-padding: 8px 10px;
+    --button-gap: 4px;
+    --button-font: var(--font-xs);
+    --button-letter-spacing: var(--font-xs-letter-spacing);
 }
 
 .st-button--sm {
-    padding: 2px 14px;
-    gap: 8px;
-    border-radius: 4px;
-    font: var(--font-sm);
-    letter-spacing: var(--font-sm-letter-spacing);
+    --button-padding: 8px 14px;
+    --button-gap: 8px;
+    --button-font: var(--font-sm);
+    --button-letter-spacing: var(--font-sm-letter-spacing);
 }
 
 .st-button--md {
-    padding: 2px 16px;
-    gap: 8px;
-    border-radius: 4px;
-    font: var(--font-sm);
-    letter-spacing: var(--font-sm-letter-spacing);
+    --button-padding: 10px 16px;
+    --button-gap: 8px;
+    --button-font: var(--font-sm);
+    --button-letter-spacing: var(--font-sm-letter-spacing);
 }
 
 .st-button--lg {
-    padding: 2px 20px;
-    gap: 12px;
-    border-radius: 4px;
-    font: var(--font-md);
-    letter-spacing: var(--font-md-letter-spacing);
+    --button-padding: 10px 20px;
+    --button-gap: 12px;
+    --button-font: var(--font-md);
+    --button-letter-spacing: var(--font-md-letter-spacing);
 }
 
 .st-button--xl {
-    padding: 2px 20px;
-    gap: 10px;
-    border-radius: 4px;
-    font: var(--font-md);
-    letter-spacing: var(--font-md-letter-spacing);
+    --button-padding: 12px 20px;
+    --button-gap: 10px;
+    --button-font: var(--font-md);
+    --button-letter-spacing: var(--font-md-letter-spacing);
 }
 
 .st-button--2xl {
-    padding: 2px 28px;
-    gap: 12px;
-    border-radius: 4px;
-    font: var(--font-lg);
-    letter-spacing: var(--font-lg-letter-spacing);
+    --button-padding: 18px 28px;
+    --button-gap: 12px;
+    --button-font: var(--font-lg);
+    --button-letter-spacing: var(--font-lg-letter-spacing);
 }
+
+.st-button--grey,
+.st-button--red,
+.st-button--pink,
+.st-button--purple,
+.st-button--cyan,
+.st-button--blue,
+.st-button--teal,
+.st-button--green,
+.st-button--yellow,
+.st-button--orange {
+    color: var(--st-button-font-color, currentColor);
+}
+
 .st-button--grey {
-    color: var(--grey-foreground);
-
-    &.st-button--solid {
-        background-color: var(--grey-solid);
-        color: var(--grey-contrast);
-        &:hover {
-            opacity: 90%;
-        }
-    }
-
-    &.st-button--subtle {
-        background-color: var(--grey-subtle);
-
-        &:hover {
-            background-color: var(--grey-muted);
-        }
-    }
-
-    &.st-button--surface {
-        background-color: var(--grey-subtle);
-        box-shadow: inset var(--shadow-raw) var(--grey-muted);
-
-        &:hover {
-            background-color: var(--grey-muted);
-        }
-    }
-
-    &.st-button--outline {
-        background-color: transparent;
-        box-shadow: inset var(--shadow-raw) var(--grey-muted);
-
-        &:hover {
-            background-color: var(--grey-subtle);
-        }
-    }
-
-    &.st-button--ghost {
-        background-color: transparent;
-
-        &:hover {
-            background-color: var(--grey-subtle);
-        }
-    }
-
-    &.st-button--plain {
-        background-color: transparent;
-    }
+    --st-button-font-color: var(--grey-foreground);
+    --st-button-solid-background-color: var(--grey-solid);
+    --st-button-solid-font-color: var(--grey-contrast);
+    --st-button-subtle-background-color: var(--grey-subtle);
+    --st-button-muted-background-color-hover: var(--grey-muted);
+    --st-button-shadow-color: var(--grey-muted);
 }
 
 .st-button--red {
-    color: var(--red-foreground);
-
-    &.st-button--solid {
-        background-color: var(--red-solid);
-        color: var(--red-contrast);
-
-        &:hover {
-            opacity: 90%;
-        }
-    }
-
-    &.st-button--subtle {
-        background-color: var(--red-subtle);
-
-        &:hover {
-            background-color: var(--red-muted);
-        }
-    }
-
-    &.st-button--surface {
-        background-color: var(--red-subtle);
-        box-shadow: inset var(--shadow-raw) var(--red-muted);
-
-        &:hover {
-            background-color: var(--red-muted);
-        }
-    }
-
-    &.st-button--outline {
-        background-color: transparent;
-        box-shadow: inset var(--shadow-raw) var(--red-muted);
-
-        &:hover {
-            background-color: var(--red-subtle);
-        }
-    }
-
-    &.st-button--ghost {
-        background-color: transparent;
-
-        &:hover {
-            background-color: var(--red-subtle);
-        }
-    }
-
-    &.st-button--plain {
-        background-color: transparent;
-    }
+    --st-button-font-color: var(--red-foreground);
+    --st-button-solid-background-color: var(--red-solid);
+    --st-button-solid-font-color: var(--red-contrast);
+    --st-button-subtle-background-color: var(--red-subtle);
+    --st-button-muted-background-color-hover: var(--red-muted);
+    --st-button-shadow-color: var(--red-muted);
 }
 
 .st-button--pink {
-    color: var(--pink-foreground);
-
-    &.st-button--solid {
-        background-color: var(--pink-solid);
-        color: var(--pink-contrast);
-
-        &:hover {
-            opacity: 90%;
-        }
-    }
-
-    &.st-button--subtle {
-        background-color: var(--pink-subtle);
-
-        &:hover {
-            background-color: var(--pink-muted);
-        }
-    }
-
-    &.st-button--surface {
-        background-color: var(--pink-subtle);
-        box-shadow: inset var(--shadow-raw) var(--pink-muted);
-
-        &:hover {
-            background-color: var(--pink-muted);
-        }
-    }
-
-    &.st-button--outline {
-        background-color: transparent;
-        box-shadow: inset var(--shadow-raw) var(--pink-muted);
-
-        &:hover {
-            background-color: var(--pink-subtle);
-        }
-    }
-
-    &.st-button--ghost {
-        background-color: transparent;
-
-        &:hover {
-            background-color: var(--pink-subtle);
-        }
-    }
-
-    &.st-button--plain {
-        background-color: transparent;
-    }
+    --st-button-font-color: var(--pink-foreground);
+    --st-button-solid-background-color: var(--pink-solid);
+    --st-button-solid-font-color: var(--pink-contrast);
+    --st-button-subtle-background-color: var(--pink-subtle);
+    --st-button-muted-background-color-hover: var(--pink-muted);
+    --st-button-shadow-color: var(--pink-muted);
 }
 
 .st-button--purple {
-    color: var(--purple-foreground);
-
-    &.st-button--solid {
-        background-color: var(--purple-solid);
-        color: var(--purple-contrast);
-
-        &:hover {
-            opacity: 90%;
-        }
-    }
-
-    &.st-button--subtle {
-        background-color: var(--purple-subtle);
-
-        &:hover {
-            background-color: var(--purple-muted);
-        }
-    }
-
-    &.st-button--surface {
-        background-color: var(--purple-subtle);
-        box-shadow: inset var(--shadow-raw) var(--purple-muted);
-
-        &:hover {
-            background-color: var(--purple-muted);
-        }
-    }
-
-    &.st-button--outline {
-        background-color: transparent;
-        box-shadow: inset var(--shadow-raw) var(--purple-muted);
-
-        &:hover {
-            background-color: var(--purple-subtle);
-        }
-    }
-
-    &.st-button--ghost {
-        background-color: transparent;
-
-        &:hover {
-            background-color: var(--purple-subtle);
-        }
-    }
-
-    &.st-button--plain {
-        background-color: transparent;
-    }
+    --st-button-font-color: var(--purple-foreground);
+    --st-button-solid-background-color: var(--purple-solid);
+    --st-button-solid-font-color: var(--purple-contrast);
+    --st-button-subtle-background-color: var(--purple-subtle);
+    --st-button-muted-background-color-hover: var(--purple-muted);
+    --st-button-shadow-color: var(--purple-muted);
 }
 
 .st-button--cyan {
-    color: var(--cyan-foreground);
-
-    &.st-button--solid {
-        background-color: var(--cyan-solid);
-        color: var(--cyan-contrast);
-
-        &:hover {
-            opacity: 90%;
-        }
-    }
-
-    &.st-button--subtle {
-        background-color: var(--cyan-subtle);
-
-        &:hover {
-            background-color: var(--cyan-muted);
-        }
-    }
-
-    &.st-button--surface {
-        background-color: var(--cyan-subtle);
-        box-shadow: inset var(--shadow-raw) var(--cyan-muted);
-
-        &:hover {
-            background-color: var(--cyan-muted);
-        }
-    }
-
-    &.st-button--outline {
-        background-color: transparent;
-        box-shadow: inset var(--shadow-raw) var(--cyan-muted);
-
-        &:hover {
-            background-color: var(--cyan-subtle);
-        }
-    }
-
-    &.st-button--ghost {
-        background-color: transparent;
-
-        &:hover {
-            background-color: var(--cyan-subtle);
-        }
-    }
-
-    &.st-button--plain {
-        background-color: transparent;
-    }
+    --st-button-font-color: var(--cyan-foreground);
+    --st-button-solid-background-color: var(--cyan-solid);
+    --st-button-solid-font-color: var(--cyan-contrast);
+    --st-button-subtle-background-color: var(--cyan-subtle);
+    --st-button-muted-background-color-hover: var(--cyan-muted);
+    --st-button-shadow-color: var(--cyan-muted);
 }
 
 .st-button--blue {
-    color: var(--blue-foreground);
-
-    &.st-button--solid {
-        background-color: var(--blue-solid);
-        color: var(--blue-contrast);
-
-        &:hover {
-            opacity: 90%;
-        }
-    }
-
-    &.st-button--subtle {
-        background-color: var(--blue-subtle);
-
-        &:hover {
-            background-color: var(--blue-muted);
-        }
-    }
-
-    &.st-button--surface {
-        background-color: var(--blue-subtle);
-        box-shadow: inset var(--shadow-raw) var(--blue-muted);
-
-        &:hover {
-            background-color: var(--blue-muted);
-        }
-    }
-
-    &.st-button--outline {
-        background-color: transparent;
-        box-shadow: inset var(--shadow-raw) var(--blue-muted);
-
-        &:hover {
-            background-color: var(--blue-subtle);
-        }
-    }
-
-    &.st-button--ghost {
-        background-color: transparent;
-
-        &:hover {
-            background-color: var(--blue-subtle);
-        }
-    }
-
-    &.st-button--plain {
-        background-color: transparent;
-    }
+    --st-button-font-color: var(--blue-foreground);
+    --st-button-solid-background-color: var(--blue-solid);
+    --st-button-solid-font-color: var(--blue-contrast);
+    --st-button-subtle-background-color: var(--blue-subtle);
+    --st-button-muted-background-color-hover: var(--blue-muted);
+    --st-button-shadow-color: var(--blue-muted);
 }
 
 .st-button--teal {
-    color: var(--teal-foreground);
-
-    &.st-button--solid {
-        background-color: var(--teal-solid);
-        color: var(--teal-contrast);
-
-        &:hover {
-            opacity: 90%;
-        }
-    }
-
-    &.st-button--subtle {
-        background-color: var(--teal-subtle);
-
-        &:hover {
-            background-color: var(--teal-muted);
-        }
-    }
-
-    &.st-button--surface {
-        background-color: var(--teal-subtle);
-        box-shadow: inset var(--shadow-raw) var(--teal-muted);
-
-        &:hover {
-            background-color: var(--teal-muted);
-        }
-    }
-
-    &.st-button--outline {
-        background-color: transparent;
-        box-shadow: inset var(--shadow-raw) var(--teal-muted);
-
-        &:hover {
-            background-color: var(--teal-subtle);
-        }
-    }
-
-    &.st-button--ghost {
-        background-color: transparent;
-
-        &:hover {
-            background-color: var(--teal-subtle);
-        }
-    }
-
-    &.st-button--plain {
-        background-color: transparent;
-    }
+    --st-button-font-color: var(--teal-foreground);
+    --st-button-solid-background-color: var(--teal-solid);
+    --st-button-solid-font-color: var(--teal-contrast);
+    --st-button-subtle-background-color: var(--teal-subtle);
+    --st-button-muted-background-color-hover: var(--teal-muted);
+    --st-button-shadow-color: var(--teal-muted);
 }
 
 .st-button--green {
-    color: var(--green-foreground);
-
-    &.st-button--solid {
-        background-color: var(--green-solid);
-        color: var(--green-contrast);
-
-        &:hover {
-            opacity: 90%;
-        }
-    }
-
-    &.st-button--subtle {
-        background-color: var(--green-subtle);
-
-        &:hover {
-            background-color: var(--green-muted);
-        }
-    }
-
-    &.st-button--surface {
-        background-color: var(--green-subtle);
-        box-shadow: inset var(--shadow-raw) var(--green-muted);
-
-        &:hover {
-            background-color: var(--green-muted);
-        }
-    }
-
-    &.st-button--outline {
-        background-color: transparent;
-        box-shadow: inset var(--shadow-raw) var(--green-muted);
-
-        &:hover {
-            background-color: var(--green-subtle);
-        }
-    }
-
-    &.st-button--ghost {
-        background-color: transparent;
-
-        &:hover {
-            background-color: var(--green-subtle);
-        }
-    }
-
-    &.st-button--plain {
-        background-color: transparent;
-    }
+    --st-button-font-color: var(--green-foreground);
+    --st-button-solid-background-color: var(--green-solid);
+    --st-button-solid-font-color: var(--green-contrast);
+    --st-button-subtle-background-color: var(--green-subtle);
+    --st-button-muted-background-color-hover: var(--green-muted);
+    --st-button-shadow-color: var(--green-muted);
 }
 
 .st-button--yellow {
-    color: var(--yellow-foreground);
-
-    &.st-button--solid {
-        background-color: var(--yellow-solid);
-        color: var(--yellow-contrast);
-
-        &:hover {
-            opacity: 90%;
-        }
-    }
-
-    &.st-button--subtle {
-        background-color: var(--yellow-subtle);
-
-        &:hover {
-            background-color: var(--yellow-muted);
-        }
-    }
-
-    &.st-button--surface {
-        background-color: var(--yellow-subtle);
-        box-shadow: inset var(--shadow-raw) var(--yellow-muted);
-
-        &:hover {
-            background-color: var(--yellow-muted);
-        }
-    }
-
-    &.st-button--outline {
-        background-color: transparent;
-        box-shadow: inset var(--shadow-raw) var(--yellow-muted);
-
-        &:hover {
-            background-color: var(--yellow-subtle);
-        }
-    }
-
-    &.st-button--ghost {
-        background-color: transparent;
-
-        &:hover {
-            background-color: var(--yellow-subtle);
-        }
-    }
-
-    &.st-button--plain {
-        background-color: transparent;
-    }
+    --st-button-font-color: var(--yellow-foreground);
+    --st-button-solid-background-color: var(--yellow-solid);
+    --st-button-solid-font-color: var(--yellow-contrast);
+    --st-button-subtle-background-color: var(--yellow-subtle);
+    --st-button-muted-background-color-hover: var(--yellow-muted);
+    --st-button-shadow-color: var(--yellow-muted);
 }
 
 .st-button--orange {
-    color: var(--orange-foreground);
+    --st-button-font-color: var(--orange-foreground);
+    --st-button-solid-background-color: var(--orange-solid);
+    --st-button-solid-font-color: var(--orange-contrast);
+    --st-button-subtle-background-color: var(--orange-subtle);
+    --st-button-muted-background-color-hover: var(--orange-muted);
+    --st-button-shadow-color: var(--orange-muted);
+}
 
-    &.st-button--solid {
-        background-color: var(--orange-solid);
-        color: var(--orange-contrast);
+.st-button--solid {
+    background-color: var(--st-button-solid-background-color);
+    color: var(--st-button-solid-font-color);
 
-        &:hover {
-            opacity: 90%;
-        }
+    &:hover:not(:disabled) {
+        opacity: 0.9;
     }
+}
 
-    &.st-button--subtle {
-        background-color: var(--orange-subtle);
+.st-button--subtle {
+    background-color: var(--st-button-subtle-background-color);
 
-        &:hover {
-            background-color: var(--orange-muted);
-        }
+    &:hover:not(:disabled) {
+        background-color: var(--st-button-muted-background-color-hover);
     }
+}
 
-    &.st-button--surface {
-        background-color: var(--orange-subtle);
-        box-shadow: inset var(--shadow-raw) var(--orange-muted);
+.st-button--surface {
+    background-color: var(--st-button-subtle-background-color);
+    box-shadow: inset var(--shadow-raw) var(--st-button-shadow-color);
 
-        &:hover {
-            background-color: var(--orange-muted);
-        }
+    &:hover:not(:disabled) {
+        background-color: var(--st-button-muted-background-color-hover);
     }
+}
 
-    &.st-button--outline {
-        background-color: transparent;
-        box-shadow: inset var(--shadow-raw) var(--orange-muted);
+.st-button--outline {
+    background-color: transparent;
+    box-shadow: inset var(--shadow-raw) var(--st-button-shadow-color);
 
-        &:hover {
-            background-color: var(--orange-subtle);
-        }
+    &:hover:not(:disabled) {
+        background-color: var(--st-button-subtle-background-color);
     }
+}
 
-    &.st-button--ghost {
-        background-color: transparent;
+.st-button--ghost {
+    background-color: transparent;
 
-        &:hover {
-            background-color: var(--orange-subtle);
-        }
+    &:hover:not(:disabled) {
+        background-color: var(--st-button-subtle-background-color);
     }
+}
 
-    &.st-button--plain {
-        background-color: transparent;
-    }
+.st-button--plain {
+    background-color: transparent;
 }
 </style>

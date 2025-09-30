@@ -132,7 +132,6 @@
     --bg-success: var(--green-50);
     --bg-info: var(--blue-50);
 
-
     /* BORDER COLORS */
     --border: var(--grey-200);
     --border-subtle: var(--grey-50);
@@ -236,74 +235,85 @@
     --orange-focus-ring: var(--orange-400);
 
     /* TYPOGRAPHY */
-    --font-family: Inter, sans-serif;
+    --font-family: 'Inter', sans-serif;
     --font-color: var(--text);
 
     --font-xs-weight: 400;
     --font-xs-size: 12px;
     --font-xs-line-height: 16px;
     --font-xs-letter-spacing: 0;
-    --font-xs: var(--font-xs-weight) var(--font-xs-size)/var(--font-xs-line-height) var(--font-family);
+    --font-xs: normal normal var(--font-xs-weight) var(--font-xs-size) / var(--font-xs-line-height)
+        var(--font-family);
 
     --font-sm-weight: 400;
     --font-sm-size: 14px;
     --font-sm-line-height: 20px;
     --font-sm-letter-spacing: 0;
-    --font-sm: var(--font-sm-weight) var(--font-sm-size)/var(--font-sm-line-height) var(--font-family);
+    --font-sm: normal normal var(--font-sm-weight) var(--font-sm-size) / var(--font-sm-line-height)
+        var(--font-family);
 
     --font-md-weight: 400;
     --font-md-size: 16px;
     --font-md-line-height: 24px;
     --font-md-letter-spacing: 0;
-    --font-md: var(--font-md-weight) var(--font-md-size)/var(--font-md-line-height) var(--font-family);
+    --font-md: normal normal var(--font-md-weight) var(--font-md-size) / var(--font-md-line-height)
+        var(--font-family);
 
     --font-lg-weight: 400;
     --font-lg-size: 18px;
     --font-lg-line-height: 28px;
     --font-lg-letter-spacing: 0;
-    --font-lg: var(--font-lg-weight) var(--font-lg-size)/var(--font-lg-line-height) var(--font-family);
+    --font-lg: normal normal var(--font-lg-weight) var(--font-lg-size) / var(--font-lg-line-height)
+        var(--font-family);
 
     --font-xl-weight: 400;
     --font-xl-size: 20px;
     --font-xl-line-height: 30px;
     --font-xl-letter-spacing: 0;
-    --font-xl: var(--font-xl-weight) var(--font-xl-size)/var(--font-xl-line-height) var(--font-family);
+    --font-xl: normal normal var(--font-xl-weight) var(--font-xl-size) / var(--font-xl-line-height)
+        var(--font-family);
 
     --font-2xl-weight: 400;
     --font-2xl-size: 24px;
     --font-2xl-line-height: 32px;
     --font-2xl-letter-spacing: 0;
-    --font-2xl: var(--font-2xl-weight) var(--font-2xl-size)/var(--font-2xl-line-height) var(--font-family);
+    --font-2xl: normal normal var(--font-2xl-weight) var(--font-2xl-size) /
+        var(--font-2xl-line-height) var(--font-family);
 
     --font-3xl-weight: 400;
     --font-3xl-size: 30px;
     --font-3xl-line-height: 38px;
     --font-3xl-letter-spacing: 0;
-    --font-3xl: var(--font-3xl-weight) var(--font-3xl-size)/var(--font-3xl-line-height) var(--font-family);
+    --font-3xl: normal normal var(--font-3xl-weight) var(--font-3xl-size) /
+        var(--font-3xl-line-height) var(--font-family);
 
     --font-4xl-weight: 400;
     --font-4xl-size: 36px;
     --font-4xl-line-height: 44px;
     --font-4xl-letter-spacing: -0.4px;
-    --font-4xl: var(--font-4xl-weight) var(--font-4xl-size)/var(--font-4xl-line-height) var(--font-family);
+    --font-4xl: normal normal var(--font-4xl-weight) var(--font-4xl-size) /
+        var(--font-4xl-line-height) var(--font-family);
 
     --font-5xl-weight: 400;
     --font-5xl-size: 48px;
     --font-5xl-line-height: 60px;
     --font-5xl-letter-spacing: -0.4px;
-    --font-5xl: var(--font-5xl-weight) var(--font-5xl-size)/var(--font-5xl-line-height) var(--font-family);
+    --font-5xl: normal normal var(--font-5xl-weight) var(--font-5xl-size) /
+        var(--font-5xl-line-height) var(--font-family);
 
     --font-6xl-weight: 400;
     --font-6xl-size: 60px;
     --font-6xl-line-height: 72px;
     --font-6xl-letter-spacing: -0.4px;
-    --font-6xl: var(--font-6xl-weight) var(--font-6xl-size)/var(--font-6xl-line-height) var(--font-family);
+    --font-6xl: normal normal var(--font-6xl-weight) var(--font-6xl-size) /
+        var(--font-6xl-line-height) var(--font-family);
 
     --font-7xl-weight: 400;
     --font-7xl-size: 72px;
     --font-7xl-line-height: 92px;
     --font-7xl-letter-spacing: -0.4px;
-    --font-7xl: var(--font-7xl-weight) var(--font-7xl-size)/var(--font-7xl-line-height) var(--font-family);
+    --font-7xl: normal normal var(--font-7xl-weight) var(--font-7xl-size) /
+        var(--font-7xl-line-height) var(--font-family);
 
     /* RADIUS */
     --radius-2xs: 1px;
@@ -318,14 +328,29 @@
     --radius-full: 9999px;
 
     /* SHADOWS */
-    --shadow-xs: 0 0 1px rgba(24, 24, 27, 0.2), 0 1px 2px rgba(24, 24, 27, 0.1);
-    --shadow-sm: 0 0 1px rgba(24, 24, 27, 0.3), 0 2px 4px rgba(24, 24, 27, 0.1);
-    --shadow-md: 0 0 1px rgba(24, 24, 27, 0.3), 0 4px 8px rgba(24, 24, 27, 0.1);
-    --shadow-lg: 0 0 1px rgba(24, 24, 27, 0.3), 0 8px 16px rgba(24, 24, 27, 0.1);
-    --shadow-xl: 0 0 1px rgba(24, 24, 27, 0.3), 0 16px 24px rgba(24, 24, 27, 0.1);
-    --shadow-2xl: 0 0 1px rgba(24, 24, 27, 0.3), 0 24px 40px rgba(24, 24, 27, 0.16);
-    --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.05);
-    --shadow-inset: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+    --shadow-raw: 0 0 1px;
+
+    --shadow-xs-raw: 0 1px 2px;
+    --shadow-sm-raw: 0 2px 4px;
+    --shadow-md-raw: 0 4px 8px;
+    --shadow-lg-raw: 0 8px 16px;
+    --shadow-xl-raw: 0 16px 24px;
+    --shadow-2xl-raw: 0 24px 40px;
+
+    --shadow-xs:
+        var(--shadow-raw) rgba(24, 24, 27, 0.2), var(--shadow-xs-raw) rgba(24, 24, 27, 0.1);
+    --shadow-sm:
+        var(--shadow-raw) rgba(24, 24, 27, 0.3), var(--shadow-sm-raw) rgba(24, 24, 27, 0.1);
+    --shadow-md:
+        var(--shadow-raw) rgba(24, 24, 27, 0.3), var(--shadow-md-raw) rgba(24, 24, 27, 0.1);
+    --shadow-lg:
+        var(--shadow-raw) rgba(24, 24, 27, 0.3), var(--shadow-lg-raw) rgba(24, 24, 27, 0.1);
+    --shadow-xl:
+        var(--shadow-raw) rgba(24, 24, 27, 0.3), var(--shadow-xl-raw) rgba(24, 24, 27, 0.1);
+    --shadow-2xl:
+        var(--shadow-raw) rgba(24, 24, 27, 0.3), var(--shadow-2xl-raw) rgba(24, 24, 27, 0.16);
+    --shadow-inner: inset var(--shadow-sm-raw) rgba(0, 0, 0, 0.05);
+    --shadow-inset: inset var(--shadow-raw) rgba(0, 0, 0, 0.05);
 
     /* BLUR EFFECTS */
     --blur-sm: blur(2px);
@@ -335,7 +360,7 @@
     --blur-3xl: blur(12px);
 }
 
-html[data-theme="dark"] {
+html[data-theme='dark'] {
     /* BACKGROUND COLORS */
     --bg: black;
     --bg-subtle: var(--grey-950);
@@ -347,7 +372,6 @@ html[data-theme="dark"] {
     --bg-warning: var(--orange-950);
     --bg-success: var(--green-950);
     --bg-info: var(--blue-950);
-
 
     /* BORDER COLORS */
     --border: var(--grey-800);
