@@ -1,51 +1,17 @@
-import tsPlugin from '@typescript-eslint/eslint-plugin';
-import tsParser from '@typescript-eslint/parser';
-import prettierPlugin from 'eslint-plugin-prettier';
+import { globalIgnores } from 'eslint/config';
+import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript';
+import pluginVue from 'eslint-plugin-vue';
+import skipFormatting from '@vue/eslint-config-prettier/skip-formatting';
 
-export default [
+export default defineConfigWithVueTs(
     {
-        ignores: ['node_modules', 'dist', 'build', 'coverage'],
+        name: 'app/files-to-lint',
+        files: ['**/*.{ts,mts,tsx,vue}'],
     },
 
-    {
-        files: ['*.ts', '*.tsx', '*.js', '*.jsx'],
-        languageOptions: {
-            parser: tsParser,
-            parserOptions: {
-                ecmaVersion: 'latest',
-                sourceType: 'module',
-            },
-            globals: {
-                console: 'readonly',
-                process: 'readonly',
-                NodeJS: 'readonly',
-            },
-        },
-        plugins: {
-            '@typescript-eslint': tsPlugin,
-            prettier: prettierPlugin,
-        },
-        rules: {
-            // ESLint recommended rules
-            'no-unused-vars': 'warn',
+    globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
 
-            // TypeScript recommended rules
-            '@typescript-eslint/no-unused-vars': 'warn',
-            '@typescript-eslint/explicit-function-return-type': 'off',
-
-            // Prettier rules
-            'prettier/prettier': [
-                'error',
-                {
-                    semi: true,
-                    trailingComma: 'all',
-                    tabWidth: 4,
-                    printWidth: 100,
-                    singleQuote: true,
-                    bracketSpacing: true,
-                    arrowParens: 'always',
-                },
-            ],
-        },
-    },
-];
+    pluginVue.configs['flat/essential'],
+    vueTsConfigs.recommended,
+    skipFormatting,
+);
