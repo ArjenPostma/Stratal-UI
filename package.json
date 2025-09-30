@@ -13,7 +13,8 @@
     },
     "author": "Arjen Postma",
     "files": [
-        "dist"
+        "dist",
+        "fonts"
     ],
     "main": "./dist/index.js",
     "module": "./dist/index.js",
@@ -39,23 +40,26 @@
         "format:check": "prettier --check .",
         "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.vue --fix",
         "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.vue --fix",
-        "everything": "npm run format && npm run typecheck && npm run lint:fix && npm run test",
+        "everything": "npm run format && npm run lint:fix && npm run typecheck && npm run test",
         "check-deps": "npm outdated && npm audit"
     },
     "peerDependencies": {
-        "vue": "^3.0.0",
-        "modern-normalize": "^3.0.1"
+        "modern-normalize": "^3.0.1",
+        "vue": "^3.0.0"
     },
     "devDependencies": {
         "@types/node": "^24.5.2",
         "@typescript-eslint/eslint-plugin": "^8.44.1",
         "@typescript-eslint/parser": "^8.44.1",
         "@vitejs/plugin-vue": "^6.0.1",
+        "@vue/eslint-config-prettier": "^10.2.0",
+        "@vue/eslint-config-typescript": "^14.6.0",
         "@vue/test-utils": "^2.4.6",
         "bumpp": "^10.1.0",
         "eslint": "^9.36.0",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-prettier": "^5.5.4",
+        "eslint-plugin-vue": "^10.5.0",
         "happy-dom": "^18.0.1",
         "prettier": "^3.6.2",
         "tsdown": "^0.15.5",
@@ -64,9 +68,6 @@
         "vitest": "^3.1.3",
         "vue": "^3.5.13",
         "vue-eslint-parser": "^10.2.0",
-        "vue-tsc": "^3.0.3",
-        "@vue/eslint-config-typescript": "^14.6.0",
-        "eslint-plugin-vue": "^10.5.0",
-        "@vue/eslint-config-prettier": "^10.2.0"
+        "vue-tsc": "^3.0.3"
     }
 }
