@@ -21,7 +21,9 @@
     "types": "./dist/index.d.ts",
     "exports": {
         ".": "./dist/index.js",
-        "./package.json": "./package.json"
+        "./package.json": "./package.json",
+        "./index.css": "./dist/index.css",
+        "./fonts.css": "./fonts/index.css"
     },
     "publishConfig": {
         "access": "public"
