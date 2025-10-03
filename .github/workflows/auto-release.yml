@@ -17,6 +17,8 @@ jobs:
               with:
                   node-version: 'lts/*'
                   cache: 'npm'
+                  registry-url: 'https://registry.npmjs.org/'
+                  token: ${{ secrets.NPM_TOKEN }}
 
             - name: Install dependencies
               run: npm ci
@@ -31,8 +33,9 @@ jobs:
                   echo "Local version: $LOCAL_VERSION"
                   echo "Published NPM version: $NPM_VERSION"
 
-                  # Compare versions
-                  if [ "$(printf '%s\n' "$LOCAL_VERSION" "$NPM_VERSION" | sort -V | head -n1)" = "$NPM_VERSION" ] && [ "$LOCAL_VERSION" != "$NPM_VERSION" ]; then
+                  # Compare versions using semver
+                  npx semver "$LOCAL_VERSION" -r ">$NPM_VERSION"
+                  if [ $? -eq 0 ]; then
                     echo "should_release=true" >> $GITHUB_ENV
                   else
                     echo "should_release=false" >> $GITHUB_ENV
