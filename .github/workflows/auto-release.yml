@@ -34,7 +34,7 @@ jobs:
                   echo "Published NPM version: $NPM_VERSION"
 
                   # Use npx semver to compare and store result
-                  RELEASE_NEEDED=$(npx semver "$LOCAL_VERSION" -r ">$NPM_VERSION" || echo "")
+                  RELEASE_NEEDED=$(npx semver "$LOCAL_VERSION" --range ">$NPM_VERSION" || echo "")
 
                   if [ -n "$RELEASE_NEEDED" ]; then
                     echo "should_release=true" >> $GITHUB_ENV
