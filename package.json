@@ -20,11 +20,15 @@
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "exports": {
-        ".": "./dist/index.js",
-        "./package.json": "./package.json",
-        "./dist/index.css": "./dist/index.css",
-        "./dist/fonts.css": "./fonts/index.css"
+        ".": {
+            "import": "./dist/index.js",
+            "require": "./dist/index.js"
+        },
+        "./index.css": "./dist/index.css",
+        "./fonts.css": "./fonts/index.css",
+        "./package.json": "./package.json"
     },
+
     "publishConfig": {
         "access": "public"
     },
