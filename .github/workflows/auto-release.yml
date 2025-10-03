@@ -1,0 +1,45 @@
+name: Auto Release
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    release:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Set up Node LTS
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 'lts/*'
+                  cache: 'npm'
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Check if release is needed
+              id: check_version
+              run: |
+                  LOCAL_VERSION=$(node -p "require('./package.json').version")
+                  PACKAGE_NAME=$(node -p "require('./package.json').name")
+                  NPM_VERSION=$(npm view $PACKAGE_NAME version || echo "0.0.0")
+
+                  echo "Local version: $LOCAL_VERSION"
+                  echo "Published NPM version: $NPM_VERSION"
+
+                  # Compare versions
+                  if [ "$(printf '%s\n' "$LOCAL_VERSION" "$NPM_VERSION" | sort -V | head -n1)" = "$NPM_VERSION" ] && [ "$LOCAL_VERSION" != "$NPM_VERSION" ]; then
+                    echo "should_release=true" >> $GITHUB_ENV
+                  else
+                    echo "should_release=false" >> $GITHUB_ENV
+                  fi
+
+            - name: Run release
+              if: env.should_release == 'true'
+              run: npm run release
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
