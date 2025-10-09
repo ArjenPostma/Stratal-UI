@@ -1,11 +1,10 @@
 import { expect, describe, it } from 'vitest';
 
 import { mount } from '@vue/test-utils';
-import { StButtonSize, StButtonStyle, StButtonVariant } from '../src/components/button/enums';
-import { StButton } from '../src';
+import { StButton, StButtonStyle, StButtonVariant, StSize } from '../src';
 
 describe('StButton.vue', () => {
-    const sizes = Object.values(StButtonSize);
+    const sizes = Object.values(StSize);
     const variants = Object.values(StButtonVariant);
     const types = Object.values(StButtonStyle);
 

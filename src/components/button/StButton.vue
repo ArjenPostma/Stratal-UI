@@ -3,13 +3,13 @@
         type="button"
         class="st-button"
         :class="{
-            'st-button--2xs': size === StButtonSize['2XS'],
-            'st-button--xs': size === StButtonSize.XS,
-            'st-button--sm': size === StButtonSize.SM,
-            'st-button--md': size === StButtonSize.MD,
-            'st-button--lg': size === StButtonSize.LG,
-            'st-button--xl': size === StButtonSize.XL,
-            'st-button--2xl': size === StButtonSize['2XL'],
+            'st-button--xxs': size === StSize.XXS,
+            'st-button--xs': size === StSize.XS,
+            'st-button--sm': size === StSize.SM,
+            'st-button--md': size === StSize.MD,
+            'st-button--lg': size === StSize.LG,
+            'st-button--xl': size === StSize.XL,
+            'st-button--xxl': size === StSize.XXL,
 
             'st-button--grey': variant === StButtonVariant.GREY,
             'st-button--red': variant === StButtonVariant.RED,
@@ -36,12 +36,13 @@
 
 <script setup lang="ts">
 import type { PropType } from 'vue';
-import { StButtonSize, StButtonStyle, StButtonVariant } from './enums';
+import { StButtonStyle, StButtonVariant } from './enums';
+import { StSize } from '../../enums';
 
 defineProps({
     size: {
-        type: String as PropType<StButtonSize>,
-        default: StButtonSize.MD,
+        type: String as PropType<StSize>,
+        default: StSize.MD,
     },
     variant: {
         type: String as PropType<StButtonVariant>,
@@ -61,10 +62,10 @@ defineProps({
     align-items: center;
     border: 0;
     border-radius: 4px;
-    gap: var(--button-gap, 8px);
-    padding: var(--button-padding, 4px 12px);
-    font: var(--button-font, var(--font-sm));
-    letter-spacing: var(--button-letter-spacing, var(--font-sm-letter-spacing));
+    gap: var(--st-button-gap, 8px);
+    padding: var(--st-button-padding, 4px 12px);
+    font: var(--st-button-font, var(--font-sm));
+    letter-spacing: var(--st-button-letter-spacing, var(--font-sm-letter-spacing));
     transition:
         background-color 0.2s,
         opacity 0.2s;
@@ -79,53 +80,53 @@ defineProps({
     }
 }
 
-.st-button--2xs {
-    --button-padding: 4px 8px;
-    --button-gap: 4px;
-    --button-font: var(--font-xs);
-    --button-letter-spacing: var(--font-xs-letter-spacing);
+.st-button--xxs {
+    --st-button-padding: 4px 8px;
+    --st-button-gap: 4px;
+    --st-button-font: var(--font-xs);
+    --st-button-letter-spacing: var(--font-xs-letter-spacing);
 }
 
 .st-button--xs {
-    --button-padding: 8px 10px;
-    --button-gap: 4px;
-    --button-font: var(--font-xs);
-    --button-letter-spacing: var(--font-xs-letter-spacing);
+    --st-button-padding: 8px 10px;
+    --st-button-gap: 4px;
+    --st-button-font: var(--font-xs);
+    --st-button-letter-spacing: var(--font-xs-letter-spacing);
 }
 
 .st-button--sm {
-    --button-padding: 8px 14px;
-    --button-gap: 8px;
-    --button-font: var(--font-sm);
-    --button-letter-spacing: var(--font-sm-letter-spacing);
+    --st-button-padding: 8px 14px;
+    --st-button-gap: 8px;
+    --st-button-font: var(--font-sm);
+    --st-button-letter-spacing: var(--font-sm-letter-spacing);
 }
 
 .st-button--md {
-    --button-padding: 10px 16px;
-    --button-gap: 8px;
-    --button-font: var(--font-sm);
-    --button-letter-spacing: var(--font-sm-letter-spacing);
+    --st-button-padding: 10px 16px;
+    --st-button-gap: 8px;
+    --st-button-font: var(--font-sm);
+    --st-button-letter-spacing: var(--font-sm-letter-spacing);
 }
 
 .st-button--lg {
-    --button-padding: 10px 20px;
-    --button-gap: 12px;
-    --button-font: var(--font-md);
-    --button-letter-spacing: var(--font-md-letter-spacing);
+    --st-button-padding: 10px 20px;
+    --st-button-gap: 12px;
+    --st-button-font: var(--font-md);
+    --st-button-letter-spacing: var(--font-md-letter-spacing);
 }
 
 .st-button--xl {
-    --button-padding: 12px 20px;
-    --button-gap: 10px;
-    --button-font: var(--font-md);
-    --button-letter-spacing: var(--font-md-letter-spacing);
+    --st-button-padding: 12px 20px;
+    --st-button-gap: 10px;
+    --st-button-font: var(--font-md);
+    --st-button-letter-spacing: var(--font-md-letter-spacing);
 }
 
-.st-button--2xl {
-    --button-padding: 18px 28px;
-    --button-gap: 12px;
-    --button-font: var(--font-lg);
-    --button-letter-spacing: var(--font-lg-letter-spacing);
+.st-button--xxl {
+    --st-button-padding: 18px 28px;
+    --st-button-gap: 12px;
+    --st-button-font: var(--font-lg);
+    --st-button-letter-spacing: var(--font-lg-letter-spacing);
 }
 
 .st-button--grey,

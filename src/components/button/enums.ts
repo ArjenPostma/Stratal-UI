@@ -1,13 +1,3 @@
-export enum StButtonSize {
-    '2XS' = '2XS',
-    XS = 'XS',
-    SM = 'SM',
-    MD = 'MD',
-    LG = 'LG',
-    XL = 'XL',
-    '2XL' = '2XL',
-}
-
 export enum StButtonVariant {
     GREY = 'GREY',
     RED = 'RED',
