@@ -62,10 +62,6 @@ function onInput(event: Event) {
 
 <style>
 .st-input {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
     border-radius: var(--radius-sm);
     border: 1px solid var(--border);
     color: var(--text);
