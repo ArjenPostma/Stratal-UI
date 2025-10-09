@@ -15,7 +15,7 @@
         }"
         :disabled="disabled"
         :value="modelValue"
-        @input="$emit('update:modelValue', $event.target.value)"
+        @input="onInput"
         :aria-invalid="invalid ? 'true' : 'false'"
         :aria-disabled="disabled ? 'true' : 'false'"
         :aria-required="required ? 'true' : 'false'"
@@ -25,6 +25,7 @@
 <script setup lang="ts">
 import type { PropType } from 'vue';
 import { StSize } from '../../enums';
+import { HTMLInputElement } from 'happy-dom';
 
 defineProps({
     modelValue: {
@@ -49,9 +50,15 @@ defineProps({
     },
 });
 
-defineEmits<{
+const emit = defineEmits<{
     (e: 'update:modelValue', value: string): void;
 }>();
+
+function onInput(event: Event) {
+    const target = event.target as HTMLInputElement | null;
+    if (!target) return; // safeguard against null
+    emit('update:modelValue', target.value);
+}
 </script>
 
 <style>
