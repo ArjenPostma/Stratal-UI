@@ -25,7 +25,6 @@
 <script setup lang="ts">
 import type { PropType } from 'vue';
 import { StSize } from '../../enums';
-import { HTMLInputElement } from 'happy-dom';
 
 defineProps({
     modelValue: {
