@@ -23,8 +23,8 @@ Make sure you have Vue 3 installed in your project.
 Import styles and optional fonts at the top of your project:
 
 ```ts
-import "stratal-ui/fonts.css"; // optional
-import "stratal-ui/index.css"; // required
+import 'stratal-ui/fonts.css'; // optional
+import 'stratal-ui/index.css'; // required
 ```
 
 You can register components **globally** in your main.ts:
@@ -53,14 +53,14 @@ Or register components **locally** directly in your Vue component:
 </template>
 
 <script setup lang="ts">
-    import { ref } from 'vue';
-    import { StInput, StButton } from 'stratal-ui';
+import { ref } from 'vue';
+import { StInput, StButton } from 'stratal-ui';
 
-    const text = ref('');
+const text = ref('');
 
-    function submit() {
-        console.log(text.value);
-    }
+function submit() {
+    console.log(text.value);
+}
 </script>
 ```
 
