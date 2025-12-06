@@ -19,6 +19,7 @@
         :aria-invalid="invalid ? 'true' : 'false'"
         :aria-disabled="disabled ? 'true' : 'false'"
         :aria-required="required ? 'true' : 'false'"
+        :required="required"
     />
 </template>
 

@@ -11,16 +11,16 @@
             'st-button--xl': size === StSize.XL,
             'st-button--xxl': size === StSize.XXL,
 
-            'st-button--grey': variant === StButtonVariant.GREY,
-            'st-button--red': variant === StButtonVariant.RED,
-            'st-button--pink': variant === StButtonVariant.PINK,
-            'st-button--purple': variant === StButtonVariant.PURPLE,
-            'st-button--cyan': variant === StButtonVariant.CYAN,
-            'st-button--blue': variant === StButtonVariant.BLUE,
-            'st-button--teal': variant === StButtonVariant.TEAL,
-            'st-button--green': variant === StButtonVariant.GREEN,
-            'st-button--yellow': variant === StButtonVariant.YELLOW,
-            'st-button--orange': variant === StButtonVariant.ORANGE,
+            'st-button--grey': variant === StVariant.GREY,
+            'st-button--red': variant === StVariant.RED,
+            'st-button--pink': variant === StVariant.PINK,
+            'st-button--purple': variant === StVariant.PURPLE,
+            'st-button--cyan': variant === StVariant.CYAN,
+            'st-button--blue': variant === StVariant.BLUE,
+            'st-button--teal': variant === StVariant.TEAL,
+            'st-button--green': variant === StVariant.GREEN,
+            'st-button--yellow': variant === StVariant.YELLOW,
+            'st-button--orange': variant === StVariant.ORANGE,
 
             'st-button--solid': type === StButtonStyle.SOLID,
             'st-button--subtle': type === StButtonStyle.SUBTLE,
@@ -36,8 +36,8 @@
 
 <script setup lang="ts">
 import type { PropType } from 'vue';
-import { StButtonStyle, StButtonVariant } from './enums';
-import { StSize } from '../../enums';
+import { StSize, StVariant } from '../../enums';
+import { StButtonStyle } from './enums';
 
 defineProps({
     size: {
@@ -45,8 +45,8 @@ defineProps({
         default: StSize.MD,
     },
     variant: {
-        type: String as PropType<StButtonVariant>,
-        default: StButtonVariant.GREY,
+        type: String as PropType<StVariant>,
+        default: StVariant.GREY,
     },
     type: {
         type: String as PropType<StButtonStyle>,
@@ -66,6 +66,7 @@ defineProps({
     padding: var(--st-button-padding, 4px 12px);
     font: var(--st-button-font, var(--font-sm));
     letter-spacing: var(--st-button-letter-spacing, var(--font-sm-letter-spacing));
+    color: var(--st-button-font-color, currentColor);
     transition:
         background-color 0.2s,
         opacity 0.2s;
@@ -127,19 +128,6 @@ defineProps({
     --st-button-gap: 12px;
     --st-button-font: var(--font-lg);
     --st-button-letter-spacing: var(--font-lg-letter-spacing);
-}
-
-.st-button--grey,
-.st-button--red,
-.st-button--pink,
-.st-button--purple,
-.st-button--cyan,
-.st-button--blue,
-.st-button--teal,
-.st-button--green,
-.st-button--yellow,
-.st-button--orange {
-    color: var(--st-button-font-color, currentColor);
 }
 
 .st-button--grey {

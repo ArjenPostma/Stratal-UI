@@ -1,6 +1,6 @@
 <template>
     <div
-        v-for="variant in Object.values(StButtonVariant)"
+        v-for="variant in Object.values(StVariant)"
         :key="variant"
         style="display: flex; flex-direction: column; gap: 8px"
     >
@@ -39,5 +39,5 @@
 </template>
 
 <script setup lang="ts">
-import { StButton, StSize, StButtonVariant, StButtonStyle } from 'stratal-ui';
+import { StButton, StSize, StVariant, StButtonStyle } from 'stratal-ui';
 </script>

@@ -1,21 +1,10 @@
-export enum StButtonVariant {
-    GREY = 'GREY',
-    RED = 'RED',
-    PINK = 'PINK',
-    PURPLE = 'PURPLE',
-    CYAN = 'CYAN',
-    BLUE = 'BLUE',
-    TEAL = 'TEAL',
-    GREEN = 'GREEN',
-    YELLOW = 'YELLOW',
-    ORANGE = 'ORANGE',
-}
+import { StStyle } from '../../enums';
 
 export enum StButtonStyle {
-    SOLID = 'SOLID',
-    SUBTLE = 'SUBTLE',
-    SURFACE = 'SURFACE',
-    OUTLINE = 'OUTLINE',
-    GHOST = 'GHOST',
-    PLAIN = 'PLAIN',
+    SOLID = StStyle.SOLID,
+    SUBTLE = StStyle.SUBTLE,
+    SURFACE = StStyle.SURFACE,
+    OUTLINE = StStyle.OUTLINE,
+    GHOST = StStyle.GHOST,
+    PLAIN = StStyle.PLAIN,
 }
