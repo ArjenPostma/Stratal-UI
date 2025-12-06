@@ -1,11 +1,11 @@
 import { expect, describe, it } from 'vitest';
 
 import { mount } from '@vue/test-utils';
-import { StButton, StButtonStyle, StButtonVariant, StSize } from '../src';
+import { StButton, StButtonStyle, StVariant, StSize } from '../src';
 
 describe('StButton.vue', () => {
     const sizes = Object.values(StSize);
-    const variants = Object.values(StButtonVariant);
+    const variants = Object.values(StVariant);
     const types = Object.values(StButtonStyle);
 
     const allCombos = [sizes, variants, types].reduce(
