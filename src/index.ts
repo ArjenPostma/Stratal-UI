@@ -5,4 +5,4 @@ import './styles/variables.css';
 export * from './enums';
 export * from './components/button';
 export * from './components/input';
-export * from "./components/checkbox";
+export * from './components/checkbox';

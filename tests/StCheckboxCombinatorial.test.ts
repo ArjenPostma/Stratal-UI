@@ -36,9 +36,9 @@ describe('StCheckbox.vue combinatorial tests', () => {
             // Attributes
             expect(input.attributes('disabled')).toBe(disabled ? '' : undefined);
 
-            if(disabled) {
+            if (disabled) {
                 expect(wrapper.classes()).toContain(`st-checkbox--disabled`);
-            }else {
+            } else {
                 expect(wrapper.classes()).not.toContain(`st-checkbox--disabled`);
             }
 

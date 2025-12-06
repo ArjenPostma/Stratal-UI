@@ -2,13 +2,13 @@
     <div
         v-for="variant in Object.values(StVariant)"
         :key="variant"
-        style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px;"
+        style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px"
     >
         <div style="display: flex; flex-direction: row; gap: 8px">
             <div
                 v-for="style in Object.values(StCheckboxStyle)"
                 :key="style"
-                style="display: flex; flex-direction: row;"
+                style="display: flex; flex-direction: row"
             >
                 <StCheckbox
                     v-for="size in Object.values(StCheckboxSize)"
@@ -26,7 +26,7 @@
             <div
                 v-for="style in Object.values(StCheckboxStyle)"
                 :key="style"
-                style="display: flex; flex-direction: row;"
+                style="display: flex; flex-direction: row"
             >
                 <StCheckbox
                     v-for="size in Object.values(StCheckboxSize)"
@@ -45,7 +45,7 @@
             <div
                 v-for="style in Object.values(StCheckboxStyle)"
                 :key="style"
-                style="display: flex; flex-direction: row;"
+                style="display: flex; flex-direction: row"
             >
                 <StCheckbox
                     v-for="size in Object.values(StCheckboxSize)"
@@ -64,7 +64,7 @@
             <div
                 v-for="style in Object.values(StCheckboxStyle)"
                 :key="style"
-                style="display: flex; flex-direction: row;"
+                style="display: flex; flex-direction: row"
             >
                 <StCheckbox
                     v-for="size in Object.values(StCheckboxSize)"
@@ -84,7 +84,7 @@
             <div
                 v-for="style in Object.values(StCheckboxStyle)"
                 :key="style"
-                style="display: flex; flex-direction: row;"
+                style="display: flex; flex-direction: row"
             >
                 <StCheckbox
                     v-for="size in Object.values(StCheckboxSize)"
@@ -103,7 +103,7 @@
             <div
                 v-for="style in Object.values(StCheckboxStyle)"
                 :key="style"
-                style="display: flex; flex-direction: row;"
+                style="display: flex; flex-direction: row"
             >
                 <StCheckbox
                     v-for="size in Object.values(StCheckboxSize)"
@@ -124,7 +124,7 @@
 
 <script setup lang="ts">
 import { StCheckbox, StCheckboxSize, StVariant, StCheckboxStyle } from 'stratal-ui';
-import {ref} from "vue";
+import { ref } from 'vue';
 
 const checked = ref(true);
 </script>

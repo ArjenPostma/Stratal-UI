@@ -36,8 +36,8 @@
 
 <script setup lang="ts">
 import type { PropType } from 'vue';
-import {StSize, StVariant} from '../../enums';
-import {StButtonStyle} from "./enums";
+import { StSize, StVariant } from '../../enums';
+import { StButtonStyle } from './enums';
 
 defineProps({
     size: {

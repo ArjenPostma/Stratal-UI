@@ -2,7 +2,7 @@ import { createWebHistory, createRouter } from 'vue-router';
 import HomeView from './views/HomeView.vue';
 import ButtonView from './views/ButtonView.vue';
 import InputView from './views/InputView.vue';
-import CheckboxView from "./views/CheckboxView.vue";
+import CheckboxView from './views/CheckboxView.vue';
 
 const routes = [
     { path: '/', component: HomeView },

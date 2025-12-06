@@ -26,31 +26,26 @@
 
             'st-checkbox--checked': internalChecked,
             'st-checkbox--indeterminate': internalIndeterminate,
-            'st-checkbox--disabled': disabled
+            'st-checkbox--disabled': disabled,
         }"
-
         @click="handleOnClick"
-        aria-hidden="true"
+        :aria-disabled="disabled ? 'true' : 'false'"
     >
         <input
             ref="checkbox"
             type="checkbox"
             :disabled="disabled"
             :checked="internalChecked"
+            :aria-required="required ? 'true' : 'false'"
+            :required="required"
         />
     </span>
 </template>
 
 <script setup lang="ts">
-import {
-    computed,
-    onMounted,
-    type PropType,
-    ref,
-    watch,
-} from "vue";
-import {StCheckboxSize, StCheckboxStyle} from "./enums";
-import {StVariant} from '../../enums';
+import { computed, onMounted, type PropType, ref, watch } from 'vue';
+import { StCheckboxSize, StCheckboxStyle } from './enums';
+import { StVariant } from '../../enums';
 
 const props = defineProps({
     size: {
@@ -77,7 +72,11 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
-})
+    required: {
+        type: Boolean,
+        default: false,
+    },
+});
 
 const emit = defineEmits<{
     (e: 'update:modelValue', value: boolean): void;
@@ -88,15 +87,19 @@ const checkbox = ref<HTMLInputElement | null>(null);
 const internalChecked = computed(() => !props.indeterminate && props.modelValue);
 const internalIndeterminate = computed(() => props.indeterminate);
 
-watch(() => props.indeterminate, (isIndeterminate) => {
-    if (checkbox.value) {
-        checkbox.value.indeterminate = isIndeterminate;
-    }
+watch(
+    () => props.indeterminate,
+    (isIndeterminate) => {
+        if (checkbox.value) {
+            checkbox.value.indeterminate = isIndeterminate;
+        }
 
-    if (isIndeterminate && props.modelValue) {
-        emit('update:modelValue', false);
-    }
-}, {immediate: true});
+        if (isIndeterminate && props.modelValue) {
+            emit('update:modelValue', false);
+        }
+    },
+    { immediate: true },
+);
 
 function handleOnClick() {
     if (props.disabled) return;
@@ -115,14 +118,13 @@ onMounted(() => {
         checkbox.value.indeterminate = props.indeterminate;
     }
 });
-
 </script>
 
 <style>
 .st-checkbox {
     display: inline-block;
     position: relative;
-    content: " ";
+    content: ' ';
 
     width: var(--st-checkbox-size, 20px);
     height: var(--st-checkbox-size, 20px);
@@ -147,7 +149,7 @@ onMounted(() => {
     }
 
     &::after {
-        content: " ";
+        content: ' ';
         display: inline-block;
         position: absolute;
         width: var(--st-checkbox-size, 20px);
@@ -159,13 +161,13 @@ onMounted(() => {
     }
 }
 
-    input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-    }
+input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
 
 .st-checkbox--checked::after {
     transform: scale(0.8);
@@ -440,7 +442,8 @@ onMounted(() => {
     border-color: var(--st-checkbox-border-color);
     background-color: var(--st-checkbox-background-color);
 
-    &.st-checkbox--checked, &.st-checkbox--indeterminate {
+    &.st-checkbox--checked,
+    &.st-checkbox--indeterminate {
         background-color: var(--st-checkbox-solid-checked-background-color);
     }
 }
@@ -449,7 +452,8 @@ onMounted(() => {
     border-color: var(--st-checkbox-border-color);
     background-color: var(--st-checkbox-background-color);
 
-    &.st-checkbox--checked, &.st-checkbox--indeterminate {
+    &.st-checkbox--checked,
+    &.st-checkbox--indeterminate {
         border-color: var(--st-checkbox-outline-checked-border-color);
     }
 }
@@ -463,7 +467,8 @@ onMounted(() => {
     border-color: var(--st-checkbox-border-color);
     background-color: var(--st-checkbox-background-color);
 
-    &.st-checkbox--checked, &.st-checkbox--indeterminate {
+    &.st-checkbox--checked,
+    &.st-checkbox--indeterminate {
         border-color: var(--st-checkbox-plain-border-color);
     }
 }
@@ -472,10 +477,9 @@ onMounted(() => {
     border-color: var(--st-checkbox-inverted-border-color);
     background-color: var(--st-checkbox-inverted-background-color);
 
-    &.st-checkbox--checked, &.st-checkbox--indeterminate {
+    &.st-checkbox--checked,
+    &.st-checkbox--indeterminate {
         background-color: transparent;
     }
 }
-
-
 </style>

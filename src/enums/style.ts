@@ -5,5 +5,5 @@ export enum StStyle {
     OUTLINE = 'OUTLINE',
     GHOST = 'GHOST',
     PLAIN = 'PLAIN',
-    INVERTED = 'INVERTED'
+    INVERTED = 'INVERTED',
 }

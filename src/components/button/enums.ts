@@ -1,4 +1,4 @@
-import {StStyle} from '../../enums';
+import { StStyle } from '../../enums';
 
 export enum StButtonStyle {
     SOLID = StStyle.SOLID,

@@ -1,4 +1,4 @@
-import {StSize, StStyle} from "../../enums";
+import { StSize, StStyle } from '../../enums';
 
 export enum StCheckboxSize {
     XS = StSize.XS,
