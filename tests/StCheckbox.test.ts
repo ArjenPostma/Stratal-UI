@@ -57,6 +57,7 @@ describe('StCheckbox.vue', () => {
 
         const input = wrapper.find('input[type="checkbox"]');
         expect(input.attributes('aria-required')).toBe('true');
+        expect(input.attributes('required')).toBeDefined();
     });
 
     it('supports v-model with a boolean value', async () => {

@@ -17,9 +17,7 @@
                     :variant="variant"
                     :type="style"
                     style="margin-left: 4px; margin-right: 4px"
-                >
-                    Button
-                </StCheckbox>
+                />
             </div>
         </div>
         <div style="display: flex; flex-direction: row; gap: 8px">
@@ -36,9 +34,7 @@
                     :type="style"
                     style="margin-left: 4px; margin-right: 4px"
                     disabled
-                >
-                    Button
-                </StCheckbox>
+                />
             </div>
         </div>
         <div style="display: flex; flex-direction: row; gap: 8px">
@@ -55,9 +51,7 @@
                     :type="style"
                     style="margin-left: 4px; margin-right: 4px"
                     v-model="checked"
-                >
-                    Button
-                </StCheckbox>
+                />
             </div>
         </div>
         <div style="display: flex; flex-direction: row; gap: 8px">
@@ -75,9 +69,7 @@
                     style="margin-left: 4px; margin-right: 4px"
                     v-model="checked"
                     disabled
-                >
-                    Button
-                </StCheckbox>
+                />
             </div>
         </div>
         <div style="display: flex; flex-direction: row; gap: 8px">
@@ -94,9 +86,7 @@
                     :type="style"
                     style="margin-left: 4px; margin-right: 4px"
                     indeterminate
-                >
-                    Button
-                </StCheckbox>
+                />
             </div>
         </div>
         <div style="display: flex; flex-direction: row; gap: 8px">
@@ -114,9 +104,7 @@
                     style="margin-left: 4px; margin-right: 4px"
                     indeterminate
                     disabled
-                >
-                    Button
-                </StCheckbox>
+                />
             </div>
         </div>
     </div>
