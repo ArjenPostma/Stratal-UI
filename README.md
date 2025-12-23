@@ -39,7 +39,7 @@ const app = createApp(App);
 app.component('StInput', StInput);
 app.component('StButton', StButton);
 
-// Other Components
+// Register other Stratal UI components here as needed
 
 app.mount('#app');
 ```
