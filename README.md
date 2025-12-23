@@ -39,6 +39,8 @@ const app = createApp(App);
 app.component('StInput', StInput);
 app.component('StButton', StButton);
 
+// Other Components
+
 app.mount('#app');
 ```
 
@@ -68,8 +70,9 @@ function submit() {
 
 Currently available:
 
-- **StInput** – A customizable input component with multiple sizes and states.
-- **StButton** – A versatile button component with various sizes and states.
+- **StInput**
+- **StButton**
+- **StCheckbox**
 
 ## Development
 
