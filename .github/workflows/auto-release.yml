@@ -48,9 +48,9 @@ jobs:
 
             - name: Check Formatting
               if: env.should_release == 'true'
-              run: npm run format
+              run: npm run format:check
 
-            - name: Check Lint
+            - name: Run Linter
               if: env.should_release == 'true'
               run: npm run lint
 
@@ -68,4 +68,4 @@ jobs:
 
             - name: Publish via OIDC
               if: env.should_release == 'true'
-              run: npm publish --access public
+              run: npm publish --provenance --access public
