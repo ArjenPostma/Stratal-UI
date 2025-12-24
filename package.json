@@ -39,11 +39,11 @@
         "test:watch": "vitest",
         "test": "vitest run",
         "typecheck": "vue-tsc --noEmit",
-        "release": "npm run everything && npm run build && npm publish",
+        "release": "npm run everything && npm run build && npm publish --access public",
         "prepublishOnly": "npm run build",
         "format": "prettier --write .",
         "format:check": "prettier --check .",
-        "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.vue --fix",
+        "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.vue",
         "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.vue --fix",
         "everything": "npm run format && npm run lint:fix && npm run typecheck && npm run test",
         "check-deps": "npm outdated && npm audit"

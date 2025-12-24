@@ -5,9 +5,14 @@ on:
         branches:
             - main
 
+permissions:
+    contents: read
+    id-token: write
+
 jobs:
     release:
         runs-on: ubuntu-latest
+
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
@@ -41,8 +46,26 @@ jobs:
                     echo "should_release=false" >> $GITHUB_ENV
                   fi
 
-            - name: Run release
+            - name: Check Formatting
               if: env.should_release == 'true'
-              run: npm run release
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+              run: npm run format:check
+
+            - name: Run Linter
+              if: env.should_release == 'true'
+              run: npm run lint
+
+            - name: Check typings
+              if: env.should_release == 'true'
+              run: npm run typecheck
+
+            - name: Run tests
+              if: env.should_release == 'true'
+              run: npm run test
+
+            - name: Build project
+              if: env.should_release == 'true'
+              run: npm run build
+
+            - name: Publish via OIDC
+              if: env.should_release == 'true'
+              run: npm publish --provenance --access public
