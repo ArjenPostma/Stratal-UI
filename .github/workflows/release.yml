@@ -25,45 +25,18 @@ jobs:
             - name: Install dependencies
               run: npm ci
 
-            - name: Check if release is needed
-              id: check_version
+            - name: Check version and Publish
               run: |
-                  LOCAL_VERSION=$(node -p "require('./package.json').version")
                   PACKAGE_NAME=$(node -p "require('./package.json').name")
-                  NPM_VERSION=$(npm view $PACKAGE_NAME version || echo "0.0.0")
+                  LOCAL_VERSION=$(node -p "require('./package.json').version")
+                  NPM_VERSION=$(npm view $PACKAGE_NAME version 2>/dev/null || echo "0.0.0")
 
-                  echo "Local version: $LOCAL_VERSION"
-                  echo "Published NPM version: $NPM_VERSION"
-
-                  # Use npx semver to compare and store result
-                  RELEASE_NEEDED=$(npx semver "$LOCAL_VERSION" --range ">$NPM_VERSION" || echo "")
-
-                  if [ -n "$RELEASE_NEEDED" ]; then
-                    echo "should_release=true" >> $GITHUB_ENV
+                  if npx semver "$LOCAL_VERSION" --range ">$NPM_VERSION"; then
+                    echo "New version detected. Starting release..."
+                    # Runs format, lint, typecheck, and test per your package.json
+                    npm run everything
+                    # 'prepublishOnly' in your package.json handles the build automatically
+                    npm publish --provenance --access public
                   else
-                    echo "should_release=false" >> $GITHUB_ENV
+                    echo "Version $LOCAL_VERSION is not newer than $NPM_VERSION. Skipping."
                   fi
-
-            - name: Check Formatting
-              if: env.should_release == 'true'
-              run: npm run format:check
-
-            - name: Run Linter
-              if: env.should_release == 'true'
-              run: npm run lint
-
-            - name: Check typings
-              if: env.should_release == 'true'
-              run: npm run typecheck
-
-            - name: Run tests
-              if: env.should_release == 'true'
-              run: npm run test
-
-            - name: Build project
-              if: env.should_release == 'true'
-              run: npm run build
-
-            - name: Publish via OIDC
-              if: env.should_release == 'true'
-              run: npm publish --provenance --access public
